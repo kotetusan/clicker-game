@@ -1,0 +1,30 @@
+steps:
+  # 1. Docker Build
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/$PROJECT_ID/clicker-game', '.']
+
+  # 2. Docker Push
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/$PROJECT_ID/clicker-game']
+
+  # 3. Deploy to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: 'gcloud'
+    args:
+      - 'run'
+      - 'deploy'
+      - 'clicker-game'
+      - '--image=gcr.io/$PROJECT_ID/clicker-game'
+      - '--region=asia-northeast1'
+      - '--platform=managed'
+      - '--allow-unauthenticated'
+      - '--memory=256Mi'
+      - '--cpu=1'
+      - '--max-instances=10'
+      # Note: The Service Account must already exist. 
+      # It is created via the one-time local deploy.ps1 or manually.
+      - '--service-account=clicker-game-sa@$PROJECT_ID.iam.gserviceaccount.com'
+
+# Store images in Google Container Registry (or Artifact Registry)
+images:
+  - 'gcr.io/$PROJECT_ID/clicker-game'
