@@ -122,6 +122,7 @@ class ClickerGame {
         this.startGoldenButtonLoop();
         this.initParticles();
         this.renderSatellites(); // Ensure satellites render on startup/reset
+        this.checkRankUp(); // Initialize Rank UI based on loaded upgrades
     }
 
     initParticles() {
@@ -354,6 +355,7 @@ class ClickerGame {
         this.calculateStats();
         this.saveGame();
         this.renderUpgrades(); // Updates both standard and prestige lists
+        this.checkRankUp(); // Reset Rank UI
         this.updateUI();
 
         alert(`PRESTIGE SUCCESSFUL!\nUse your Prestige Points to buy permanent buffs!`);
