@@ -1,0 +1,11 @@
+.git
+.gitignore
+.dockerignore
+Dockerfile
+cloudbuild.yaml
+deploy.ps1
+README.md
+*.md
+node_modules
+services.txt
+url.txt

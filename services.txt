@@ -1,6 +1,0 @@
-X
-SERVICE: clicker-game
-REGION: asia-northeast1
-URL: https://clicker-game-458239200161.asia-northeast1.run.app
-LAST DEPLOYED BY: kotetusan@gmail.com
-LAST DEPLOYED AT: 2026-01-12T16:25:00.928016Z
