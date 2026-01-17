@@ -1292,7 +1292,7 @@ body.buff-active-silver .float-number {
     border-radius: 8px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     font-size: 3rem;
     font-weight: bold;
     color: white;
