@@ -330,15 +330,29 @@ class ClickerGame {
         // Prestige Trigger
         if (this.rank >= 40) {
             this.elPrestigeBtn.style.display = 'block';
+            this.updatePrestigeModalText(); // Update modal text
         } else {
             this.elPrestigeBtn.style.display = 'none';
         }
     }
 
+    getPrestigeReward() {
+        return Math.max(0, this.rank - 30);
+    }
+
+    updatePrestigeModalText() {
+        const reward = this.getPrestigeReward();
+        const elModalText = document.querySelector('#prestige-modal .modal-content p:nth-child(3)');
+        if (elModalText) {
+            elModalText.innerHTML = `You will gain <span style="color: #bc13fe; font-weight: bold;">${reward} Prestige Points</span>.`;
+        }
+    }
+
     doPrestige() {
         // Reset Logic
+        const reward = this.getPrestigeReward();
         this.prestigeCount++;
-        this.prestigePoints += 10; // Fixed reward for now
+        this.prestigePoints += reward;
 
         // Reset Standard Progress
         this.score = 0;
@@ -358,7 +372,7 @@ class ClickerGame {
         this.checkRankUp(); // Reset Rank UI
         this.updateUI();
 
-        alert(`PRESTIGE SUCCESSFUL!\nUse your Prestige Points to buy permanent buffs!`);
+        alert(`PRESTIGE SUCCESSFUL!\nYou gained ${reward} Prestige Points!`);
     }
 
     // Update Calculate Stats for Prestige Multiplier
