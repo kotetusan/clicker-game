@@ -453,7 +453,7 @@ class ClickerGame {
                 <span class="upgrade-level">Lv ${upgrade.level}</span>
             </div>
             <div class="upgrade-desc">${upgrade.desc}</div>
-            <div class="upgrade-cost">Cost: ${this.formatNumber(cost)} ${isPrestige ? 'PP' : ''}</div>
+            <div class="upgrade-cost">${isMaxed ? 'MAX' : 'Cost: ' + this.formatNumber(cost) + (isPrestige ? ' PP' : '')}</div>
         `;
         return el;
     }
