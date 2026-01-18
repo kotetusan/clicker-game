@@ -597,6 +597,16 @@ class ClickerGame {
             // Offset angle so they don't align perfectly with satellites if counts match
             this.spawnOrbitUnit(i, factoryCount, 'bot-station', 'station-beam', -220, '90deg', 15);
         }
+
+        // 3. Nanobot Swarm (The Hive)
+        const swarmUpgrade = this.upgrades.find(u => u.id === 'auto_swarm');
+        const swarmCount = Math.min(swarmUpgrade ? swarmUpgrade.level : 0, 50); // Cap at 50 particles
+
+        for (let i = 0; i < swarmCount; i++) {
+            // Randomize radius slightly for a "cloud" effect
+            const radius = -280 - (Math.random() * 40);
+            this.spawnOrbitUnit(i, swarmCount, 'nano-bot', 'nano-beam', radius, '90deg', Math.random() * 360);
+        }
     }
 
     spawnOrbitUnit(index, total, unitClass, laserClass, radius, laserRot, angleOffset = 0) {
