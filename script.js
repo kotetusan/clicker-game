@@ -16,7 +16,7 @@ class ClickerGame {
                 type: 'click',
                 desc: 'Increases points per click.',
                 level: 0,
-                maxLevel: 50
+                maxLevel: 100
             },
             {
                 id: 'auto_clicker_basic',
@@ -27,7 +27,7 @@ class ClickerGame {
                 type: 'auto',
                 desc: 'Automatically clicks 1 time per second.',
                 level: 0,
-                maxLevel: 100
+                maxLevel: 200
             },
             {
                 id: 'auto_factory',
@@ -38,40 +38,40 @@ class ClickerGame {
                 type: 'auto',
                 desc: 'A small factory generating 10 points/sec.',
                 level: 0,
-                maxLevel: 100
+                maxLevel: 200
             },
             {
                 id: 'multiplier_matrix',
                 name: 'Flux Matrix',
                 baseCost: 5000,
-                costMultiplier: 2.0,
+                costMultiplier: 1.8,
                 basePower: 0, // Special logic could go here, for now just global multiplier? Or huge click boost
                 type: 'click_mult',
                 desc: 'Doubles your click power efficiency.',
                 level: 0,
-                maxLevel: 10
+                maxLevel: 20
             },
             {
                 id: 'crit_chance',
                 name: 'Precision Lens',
                 baseCost: 500,
-                costMultiplier: 1.5,
+                costMultiplier: 1.4,
                 basePower: 0.01, // +1% per level
                 type: 'crit_chance',
                 desc: '+1% Critical Hit Chance',
                 level: 0,
-                maxLevel: 20
+                maxLevel: 50
             },
             {
                 id: 'crit_power',
                 name: 'Plasma Charge',
                 baseCost: 1000,
-                costMultiplier: 1.6,
+                costMultiplier: 1.5,
                 basePower: 0.01, // +1% per level
                 type: 'crit_power',
                 desc: '+1% Critical Multiplier',
                 level: 0,
-                maxLevel: 20
+                maxLevel: 50
             }
         ];
 
@@ -328,7 +328,7 @@ class ClickerGame {
         this.elProgress.style.width = `${progress}%`;
 
         // Prestige Trigger
-        if (this.rank >= 100) {
+        if (this.rank >= 40) {
             this.elPrestigeBtn.style.display = 'block';
         } else {
             this.elPrestigeBtn.style.display = 'none';
