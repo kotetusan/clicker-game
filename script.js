@@ -22,10 +22,10 @@ class ClickerGame {
                 id: 'auto_clicker_basic',
                 name: 'Auto Bot v1',
                 baseCost: 100,
-                costMultiplier: 1.2,
-                basePower: 1, // Points per second
+                costMultiplier: 1.15,
+                basePower: 5, // Buffed: 1 -> 5
                 type: 'auto',
-                desc: 'Automatically clicks 1 time per second.',
+                desc: 'Automatically clicks 5 times per second.',
                 level: 0,
                 maxLevel: 200
             },
@@ -33,12 +33,23 @@ class ClickerGame {
                 id: 'auto_factory',
                 name: 'Point Factory',
                 baseCost: 1000,
-                costMultiplier: 1.25,
-                basePower: 10, // Points per second
+                costMultiplier: 1.2,
+                basePower: 50, // Buffed: 10 -> 50
                 type: 'auto',
-                desc: 'A small factory generating 10 points/sec.',
+                desc: 'A small factory generating 50 points/sec.',
                 level: 0,
                 maxLevel: 200
+            },
+            {
+                id: 'auto_swarm',
+                name: 'Nanobot Swarm',
+                baseCost: 25000,
+                costMultiplier: 1.3,
+                basePower: 500, // New Tier
+                type: 'auto',
+                desc: 'A swarm of nanobots generating 500 points/sec.',
+                level: 0,
+                maxLevel: 100
             },
             {
                 id: 'multiplier_matrix',
