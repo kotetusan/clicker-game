@@ -329,19 +329,39 @@ body {
     z-index: 20;
     position: relative;
     /* Anchor for menu button */
+    overflow: hidden;
+    /* CRITICAL: Prevent zone from growing beyond viewport */
+    height: 100vh;
+    /* Explicit height constraint */
 }
 
 .shop-zone h2 {
     font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     border-bottom: 2px solid var(--secondary-accent);
     padding-bottom: 0.5rem;
+    flex-shrink: 0;
+    /* Headers shouldn't shrink */
 }
 
 .upgrade-list {
     flex: 1;
+    /* Grow to fill space */
     overflow-y: auto;
+    /* Scroll internally */
     padding-right: 0.5rem;
+    min-height: 0;
+    /* CRITICAL for flex scrolling */
+}
+
+/* Prestige Shop Container needs to be flex-ready */
+#prestige-shop {
+    flex: 1;
+    /* Share space equally if visible */
+    overflow: hidden;
+    /* Contain its own list */
+    min-height: 0;
+    /* CRITICAL */
 }
 
 /* Scrollbar Styling */
